@@ -66,7 +66,9 @@ function Administration() {
       <img
         src={
           item.photo
-            ? `${import.meta.env.VITE_API_URL}${item.photo}`
+            ? item.photo.startsWith("http")
+              ? item.photo
+              : `${import.meta.env.VITE_API_URL}${item.photo}`
             : "/no-user.png"
         }
         alt={item.name}
