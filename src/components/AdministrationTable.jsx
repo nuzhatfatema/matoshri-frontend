@@ -77,15 +77,19 @@ function AdministrationTable({ onAdd, onEdit, newItem }) {
               <td>
                 {item.photo && (
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${item.photo}`}
-                    alt={item.name}
-                    width="60"
-                    height="60"
-                    style={{
-                      objectFit: "cover",
-                      borderRadius: "6px",
-                    }}
-                  />
+  src={
+    item.photo?.startsWith("http")
+      ? item.photo
+      : `${import.meta.env.VITE_API_URL}${item.photo}`
+  }
+  alt={item.name}
+  width="60"
+  height="60"
+  style={{
+    objectFit: "cover",
+    borderRadius: "6px",
+  }}
+/>
                 )}
               </td>
 
